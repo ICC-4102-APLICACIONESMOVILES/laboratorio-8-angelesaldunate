@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -16,19 +17,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.LinkedList;
-import java.util.List;
-
 import cl.magnet.mobileappsexample.db.Form;
-import cl.magnet.mobileappsexample.db.FormViewModel;
-import cl.magnet.mobileappsexample.network.NetworkManager;
+import cl.magnet.mobileappsexample.network.NewFormFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, FormsListFragment.OnListFragmentInteractionListener {
@@ -104,8 +94,15 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            // Handle the camera action
+
+            Fragment fragment=new NewFormFragment();
+
+            getSupportFragmentManager().beginTransaction().replace(R.id.framenew,fragment).addToBackStack("null").commit();
+
         } else if (id == R.id.nav_gallery) {
+            Fragment fragment=new FormsListFragment();
+
+            getSupportFragmentManager().beginTransaction().replace(R.id.framenew,fragment).addToBackStack("null").commit();
 
         } else if (id == R.id.nav_slideshow) {
 

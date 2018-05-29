@@ -5,9 +5,12 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
-@Database(entities = {Form.class}, version = 1)
+@Database(entities = {Form.class,Questions.class, Answer.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
     public abstract FormDao formDao();
+    public abstract QuestionDao questionDao();
+    public abstract AnswerDao answerDao();
+
 
     private static AppDatabase INSTANCE;
 
